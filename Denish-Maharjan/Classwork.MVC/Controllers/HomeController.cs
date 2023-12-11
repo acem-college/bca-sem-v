@@ -1,8 +1,8 @@
+using Classwork.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using Ui.Models;
 
-namespace Ui.Controllers
+namespace Classwork.MVC.Controllers
 {
     public class HomeController : Controller
     {
@@ -15,10 +15,7 @@ namespace Ui.Controllers
 
         public IActionResult Index()
         {
-            Form form = new Form();
-            form.Name = "Denish";
-            form.City = "lalitpur";
-            return View(form);
+            return View();
         }
 
         public IActionResult Privacy()

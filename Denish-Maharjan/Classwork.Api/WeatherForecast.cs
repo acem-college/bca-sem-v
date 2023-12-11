@@ -1,4 +1,4 @@
-namespace StudentApi
+namespace Classwork.Api
 {
     public class WeatherForecast
     {

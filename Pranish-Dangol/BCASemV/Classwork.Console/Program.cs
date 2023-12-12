@@ -1,11 +1,20 @@
-﻿namespace FirstConsoleApp
+﻿using Classwork.Console;
+
+class Program
 {
-   public class Program
+    static void Main()
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("First console app");
-            Console.ReadKey();
-        }
+        // Use interface
+        IUserInput userInput = new UserInput();
+        var xResult = userInput.AskForValue("x");
+        var yResult = userInput.AskForValue("y");
+
+        // Use interface
+        ICalculator calculator = new Calculator();
+        var addResult = calculator.Add(xResult, yResult);
+        var subResult = calculator.Subtract(xResult, yResult);
+
+        Console.WriteLine($"Add result: {addResult}");
+        Console.WriteLine($"Sub result: {subResult}");
     }
 }

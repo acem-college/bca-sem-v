@@ -7,7 +7,11 @@ Console.WriteLine("Hello, World!");
 var userInput = new UserInput();
 var xResult = userInput.AskForVaule("x");
 var yResult = userInput.AskForVaule("y");
+ interface askvalues
+{
 
+}
+class
 // Use interface
 var calculator = new Calculator();
 var addResult = calculator.Add(xResult, yResult);

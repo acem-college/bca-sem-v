@@ -6,5 +6,17 @@ namespace SemV.DesktopApp
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblResult.Text = $"{int.Parse(txtX.Text) + int.Parse(txtY.Text)}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

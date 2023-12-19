@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classwork.Console", "Classwork.Console\Classwork.Console.csproj", "{C87356CC-0032-47AE-8C91-F391D703F069}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classwork.Api", "Classwork.Api\Classwork.Api.csproj", "{8B147782-CACE-49AE-A10B-58600C5828D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classwork.MvcUI", "Classwork.MvcUI\Classwork.MvcUI.csproj", "{92D810B6-EE6E-4CF4-8AEB-32844EF6E4F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C87356CC-0032-47AE-8C91-F391D703F069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C87356CC-0032-47AE-8C91-F391D703F069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C87356CC-0032-47AE-8C91-F391D703F069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C87356CC-0032-47AE-8C91-F391D703F069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B147782-CACE-49AE-A10B-58600C5828D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B147782-CACE-49AE-A10B-58600C5828D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B147782-CACE-49AE-A10B-58600C5828D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B147782-CACE-49AE-A10B-58600C5828D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D810B6-EE6E-4CF4-8AEB-32844EF6E4F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D810B6-EE6E-4CF4-8AEB-32844EF6E4F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D810B6-EE6E-4CF4-8AEB-32844EF6E4F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D810B6-EE6E-4CF4-8AEB-32844EF6E4F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

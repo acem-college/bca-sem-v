@@ -1,5 +1,6 @@
 ﻿using ClassCheck.Ui.Application.Interfaces;
 using ClassCheck.Ui.Application.Models.User;
+using Microsoft.AspNetCore.Components.QuickGrid;
 
 namespace ClassCheck.Ui.Application.Services
 {
@@ -18,6 +19,19 @@ namespace ClassCheck.Ui.Application.Services
             });
 
             return users;
+        }
+
+        public async Task<ListUserVM> CreateAsync(SaveUserVM user, CancellationToken cancellationToken)
+        {
+            var userVM = new ListUserVM
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber
+            };
+            return userVM;
         }
     }
 }

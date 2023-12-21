@@ -1,6 +1,4 @@
-using Classwork.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace Classwork.MVC.Controllers
 {
@@ -26,7 +24,7 @@ namespace Classwork.MVC.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
         }
     }
 }

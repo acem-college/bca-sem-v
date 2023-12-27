@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using webApplication.Application.Model.User;
 using webApplication.Application.Services;
 
@@ -50,11 +51,19 @@ namespace webApplication.Controllers
             return View(response);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Submit(SaveUserVM saveUserVM, CancellationToken cancellationToken)
         {
             var userService = new UserService();
             await userService.CreateAsync(saveUserVM, cancellationToken);
             return RedirectToAction("index");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Delete(Guid id, CancellationToken cancellationToken)
+        {
+            var userService = new UserService();
+            var response = await userService.GetAsync(id, cancellationToken);
+            return View(response);
         }
     }
 }

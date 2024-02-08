@@ -1,0 +1,80 @@
+﻿namespace MaternalHealthMonitoring.Views.Home
+{
+    public class Dashboard
+    {Codeshare logo
+ ShareSign UpLog In
+Session Expired. Click here to refresh.
+@model YourNamespace.ViewModels.LoginViewModel
+
+<h2>Login</h2>
+<form asp-action="Login" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" value="Login" class="btn btn-primary" />
+    </div>
+</form>
+
+1
+@{
+2
+    ViewData["Title"] = "Dashboard";
+3
+}
+4
+​
+5
+<h2>Dashboard</h2>
+6
+​
+7
+<div class="list-group">
+8
+    <a href="@Url.Action("EnterHealthData", "Health")" class="list-group-item list-group-item-action">
+9
+        Enter Health Data
+10
+    </a>
+11
+    <a href="@Url.Action("ViewReports", "Health")" class="list-group-item list-group-item-action">
+12
+        View Health Reports
+13
+    </a>
+14
+    <a href="@Url.Action("ScheduleAppointment", "Appointments")" class="list-group-item list-group-item-action">
+15
+        Schedule Appointment
+16
+    </a>
+17
+    <a href="@Url.Action("EducationalResources", "Resources")" class="list-group-item list-group-item-action">
+18
+        Educational Resources
+19
+    </a>
+20
+</div>
+21
+
+
+JOBS
+
+
+
+pxHide Ads
+
+    }
+}

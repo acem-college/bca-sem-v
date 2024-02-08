@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polio & Infant Wellness", "Polio & Infant Wellness\Polio & Infant Wellness.csproj", "{066B3912-D41C-40EB-BAD0-2A98256DC398}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{066B3912-D41C-40EB-BAD0-2A98256DC398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{066B3912-D41C-40EB-BAD0-2A98256DC398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{066B3912-D41C-40EB-BAD0-2A98256DC398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{066B3912-D41C-40EB-BAD0-2A98256DC398}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27ACF483-C808-4578-80ED-421E78631295}
+	EndGlobalSection
+EndGlobal

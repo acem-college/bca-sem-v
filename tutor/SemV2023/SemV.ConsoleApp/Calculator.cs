@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SemV.ConsoleApp
 {
-    internal class Calculator
+    public  interface Calculator
     {
         // Write two functions which
         // Adds and Substract 

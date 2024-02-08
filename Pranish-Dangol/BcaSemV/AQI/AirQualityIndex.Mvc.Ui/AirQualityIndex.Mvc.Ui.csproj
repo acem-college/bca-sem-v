@@ -6,12 +6,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Application\Interface\" />
-    <Folder Include="Application\Model\" />
-    <Folder Include="Application\Services\" />
-    <Folder Include="Domain\Entities\" />
-    <Folder Include="infrastructure\Persistence\" />
-  </ItemGroup>
-
 </Project>

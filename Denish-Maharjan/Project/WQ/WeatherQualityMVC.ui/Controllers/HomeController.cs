@@ -1,8 +1,8 @@
-using Classwork.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using WeatherQualityMVC.ui.Models;
 
-namespace Classwork.MVC.Controllers
+namespace WeatherQualityMVC.ui.Controllers
 {
     public class HomeController : Controller
     {

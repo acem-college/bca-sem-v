@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "childNutrtionPlan", "childNutrtionPlan\childNutrtionPlan.csproj", "{6BCDD224-1C58-4DD2-868B-48D7401AA7C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BCDD224-1C58-4DD2-868B-48D7401AA7C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BCDD224-1C58-4DD2-868B-48D7401AA7C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BCDD224-1C58-4DD2-868B-48D7401AA7C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BCDD224-1C58-4DD2-868B-48D7401AA7C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CCEB461-11B7-44DA-BD7D-9D0F39C862BA}
+	EndGlobalSection
+EndGlobal

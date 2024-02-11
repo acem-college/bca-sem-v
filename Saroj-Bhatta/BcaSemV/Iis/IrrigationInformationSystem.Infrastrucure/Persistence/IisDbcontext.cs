@@ -8,12 +8,14 @@ using System.Reflection.Metadata;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using IrrigationInformationSystem.Application.Interfaces;
 
 namespace IrrigationInformationSystem.Infrastrucure.Persistence
 {
-    public class IisDbcontext : IdentityDbContext<Users> 
+    public class IisDbContext : IdentityDbContext<User>, 
+        IIisDbContext
     {
-        public IisDbcontext(DbContextOptions<IisDbcontext> options) : base(options){ }
+        public IisDbContext(DbContextOptions<IisDbContext> options) : base(options){ }
 
     }
  

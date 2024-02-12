@@ -1,4 +1,5 @@
-﻿using AirQualityIndex.Domain.Entities;
+﻿using AirQualityIndex.Application.Interfaces;
+using AirQualityIndex.Domain.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,10 +10,9 @@ using System.Threading.Tasks;
 
 namespace AirQualityIndex.Infrastructure.Persistence
 {
-    internal class AqiDbContext : IdentityDbContext<User
-        >
+    public class AqiDbContext : IdentityDbContext<User>,
+        IAqiDbContext
     {
         public AqiDbContext (DbContextOptions<AqiDbContext> options) : base(options) { }
-
     }
 }

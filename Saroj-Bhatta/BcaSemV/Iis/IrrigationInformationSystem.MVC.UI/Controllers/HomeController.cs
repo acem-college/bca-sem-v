@@ -1,8 +1,8 @@
-using IrrigationInformationIndex.MVC.UI.Models;
+using IrrigationInformationSystem.MVC.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace IrrigationInformationIndex.MVC.UI.Controllers
+namespace IrrigationInformationSystem.MVC.UI.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,4 +1,4 @@
-namespace Iis.Mvc.Ui.Models
+namespace IrrigationInformationSystem.MVC.UI.Models
 {
     public class ErrorViewModel
     {

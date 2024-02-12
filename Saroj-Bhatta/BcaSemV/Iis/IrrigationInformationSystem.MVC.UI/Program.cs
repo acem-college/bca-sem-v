@@ -1,3 +1,4 @@
+using IrrigationInformationSystem.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -25,3 +26,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+builder.Configuration.AddJsonFile($"appsettings.{builder.Environment}.json", optional: true, reloadOnChange: true);
+//builder.Configuration.AddInfrastructure(builder.Configuration);

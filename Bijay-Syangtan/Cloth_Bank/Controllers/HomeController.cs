@@ -1,6 +1,8 @@
+using Cloth_Bank.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
-namespace WebApp.Controllers
+namespace Cloth_Bank.Controllers
 {
     public class HomeController : Controller
     {
@@ -24,7 +26,7 @@ namespace WebApp.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View();
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherQualityMVC.ui", "WeatherQualityMVC.ui\WeatherQualityMVC.ui.csproj", "{2CB8C574-E326-4947-8524-4E896856026B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterQualityMVC.ui", "WeatherQualityMVC.ui\WaterQualityMVC.ui.csproj", "{2CB8C574-E326-4947-8524-4E896856026B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterQuality.Domain", "WaterQuality.Domain\WaterQuality.Domain.csproj", "{143CE2B0-6476-4539-AF0A-2BFC0419EFBF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{6B959ACC-5D92-41E7-BD1A-03BC69CEEDD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterQuality.Application", "WaterQuality.Application\WaterQuality.Application.csproj", "{68177FFF-77A4-4C48-B062-D19229C26F56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaterQuality.Application", "WaterQuality.Application\WaterQuality.Application.csproj", "{68177FFF-77A4-4C48-B062-D19229C26F56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

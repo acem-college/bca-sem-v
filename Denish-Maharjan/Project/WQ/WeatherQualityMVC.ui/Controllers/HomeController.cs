@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using WeatherQualityMVC.ui.Models;
+using WaterQualityMVC.ui.Models;
 
 namespace WeatherQualityMVC.ui.Controllers
 {

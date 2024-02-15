@@ -25,3 +25,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+builder.Configuration.AddJsonFile($"appsetting{builder.Environment}.json",optional:true,reloadOnChange:true);

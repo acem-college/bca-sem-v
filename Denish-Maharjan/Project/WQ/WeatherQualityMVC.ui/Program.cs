@@ -1,6 +1,10 @@
+using Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddJsonFile($"appsetting{builder.Environment}.json", optional: true, reloadOnChange: true);
 // Add services to the container.
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -26,4 +30,4 @@ app.MapControllerRoute(
 
 app.Run();
 
-builder.Configuration.AddJsonFile($"appsetting{builder.Environment}.json",optional:true,reloadOnChange:true);
+

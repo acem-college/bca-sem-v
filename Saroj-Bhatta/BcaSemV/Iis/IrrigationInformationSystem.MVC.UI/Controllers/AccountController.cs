@@ -1,9 +1,6 @@
 ﻿using IrrigationInformationSystem.Application.Interfaces;
 using IrrigationInformationSystem.Application.Models.Account;
-using IrrigationInformationSystem.Application.Services;
-using IrrigationInformationSystem.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace IrrigationInformationSystem.MVC.UI.Controllers
 {
@@ -24,7 +21,17 @@ namespace IrrigationInformationSystem.MVC.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> SignUp(SignUpVM signUp, CancellationToken cancellationToken)
         {
-            return View();
+            try
+            {
+                var result = await _accountService.SignUpAsync(signUp, cancellationToken);
+                if (result)
+                    return RedirectToAction("login");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+            }
+            return View(signUp);
         }
 
         [HttpGet]
@@ -33,9 +40,10 @@ namespace IrrigationInformationSystem.MVC.UI.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
-        public async Task<IActionResult>Login(LogInVM login,CancellationToken cancellationToken)
+
+        public async Task<IActionResult> Login(LogInVM login, CancellationToken cancellationToken)
         {
-            var result= await _accountService.LogInAsync(login,cancellationToken);
+            var result = await _accountService.LogInAsync(login, cancellationToken);
             return Redirect("/");
         }
     }

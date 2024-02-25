@@ -3,11 +3,6 @@ using IrrigationInformationSystem.Application.Models.Account;
 using IrrigationInformationSystem.Application.Models.Users;
 using IrrigationInformationSystem.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IrrigationInformationSystem.Infrastructure.Services
 {
@@ -25,9 +20,25 @@ namespace IrrigationInformationSystem.Infrastructure.Services
             dbUser.FirstName = User.FirstName;
             dbUser.LastName = User.LastName;
             dbUser.DateOfBirth = User.DateOfBirth;
-            dbUser.Username = User.Username;
+            dbUser.UserName = User.Username;
             dbUser.Email = User.Email;
             var result = await _userManager.CreateAsync(dbUser);
+            if (result.Succeeded)
+            {
+                return dbUser.Id;
+            }
+            throw new Exception("Error While Creating a User");
+        }
+
+        public async Task<string> UserSignUpAsync(SignUpVM user, CancellationToken cancellationToken)
+        {
+            var dbUser = new User();
+            dbUser.FirstName = user.FirstName;
+            dbUser.LastName = user.LastName;
+            dbUser.DateOfBirth = user.DateOfBirth;
+            dbUser.UserName = user.Username;
+            dbUser.Email = user.Email;
+            var result = await _userManager.CreateAsync(dbUser, user.Password);
             if (result.Succeeded)
             {
                 return dbUser.Id;

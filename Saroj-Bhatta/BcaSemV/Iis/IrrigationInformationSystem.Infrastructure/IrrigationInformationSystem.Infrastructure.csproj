@@ -19,4 +19,8 @@
     <ProjectReference Include="..\IrrigationInformationSystem.Application\IrrigationInformationSystem.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Persistence\Migrations\" />
+  </ItemGroup>
+
 </Project>

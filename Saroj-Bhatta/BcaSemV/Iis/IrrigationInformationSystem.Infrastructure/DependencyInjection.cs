@@ -1,6 +1,7 @@
 ﻿using IrrigationInformationSystem.Application.Interfaces;
 using IrrigationInformationSystem.Domain.Entities;
 using IrrigationInformationSystem.Infrastructure.Persistence;
+using IrrigationInformationSystem.Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,11 +30,12 @@ namespace IrrigationInformationSystem.Infrastructure
                 .AddEntityFrameworkStores<IisDbContext>()
                 .AddDefaultTokenProviders();
 
-
             //for authenticaiton
             services.AddAuthentication(IdentityConstants.ApplicationScheme)
             .AddIdentityCookies();
             services.AddAuthorization();
+            services.AddScoped<IIdentityService ,IdentityService>();
         }
+       
     }
 }

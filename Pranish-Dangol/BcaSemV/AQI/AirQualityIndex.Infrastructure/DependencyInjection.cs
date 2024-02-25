@@ -1,6 +1,7 @@
 ﻿using AirQualityIndex.Application.Interfaces;
 using AirQualityIndex.Domain.Entities;
 using AirQualityIndex.Infrastructure.Persistence;
+using AirQualityIndex.Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,7 +17,8 @@ namespace AirQualityIndex.Infrastructure
     public static class DependencyInjection
     {
         public static void AddInfrastructure(this IServiceCollection services,
-            IConfiguration configuration) {
+            IConfiguration configuration)
+        {
             services.AddDbContext<AqiDbContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("Aqi"));
@@ -32,6 +34,7 @@ namespace AirQualityIndex.Infrastructure
             services.AddAuthentication(IdentityConstants.ApplicationScheme)
                 .AddIdentityCookies();
             services.AddAuthorization();
+            services.AddScoped<IIdentityService, IdentityService>();
         }
     }
 }

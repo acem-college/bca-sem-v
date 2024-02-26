@@ -1,5 +1,6 @@
 ﻿using IrrigationInformationSystem.Application.Models.Account;
 using IrrigationInformationSystem.Application.Models.Users;
+using System.Security.Claims;
 
 namespace IrrigationInformationSystem.Application.Interfaces
 {
@@ -11,6 +12,6 @@ namespace IrrigationInformationSystem.Application.Interfaces
         Task<string> UserSignUpAsync(SignUpVM user, CancellationToken cancellationToken);
         Task<bool> UpdateAsync(int id, UpdateUserVM User, CancellationToken cancellationToken);
         Task<bool> DeleteAsync(int id, CancellationToken cancellationToken);
-        Task<bool> AuthenticateAsync(LogInVM login, CancellationToken cancellationToken);
+        Task<ClaimsPrincipal> AuthenticateAsync(LogInVM login, CancellationToken cancellationToken);
     }
 }

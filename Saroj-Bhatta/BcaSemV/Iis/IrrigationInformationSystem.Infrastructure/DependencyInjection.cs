@@ -2,15 +2,11 @@
 using IrrigationInformationSystem.Domain.Entities;
 using IrrigationInformationSystem.Infrastructure.Persistence;
 using IrrigationInformationSystem.Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IrrigationInformationSystem.Infrastructure
 {
@@ -31,11 +27,16 @@ namespace IrrigationInformationSystem.Infrastructure
                 .AddDefaultTokenProviders();
 
             //for authenticaiton
-            services.AddAuthentication(IdentityConstants.ApplicationScheme)
-            .AddIdentityCookies();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/account/login";
+                })
+                .AddIdentityCookies();
+
             services.AddAuthorization();
-            services.AddScoped<IIdentityService ,IdentityService>();
+            services.AddScoped<IIdentityService, IdentityService>();
         }
-       
+
     }
 }

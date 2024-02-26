@@ -1,5 +1,7 @@
 ﻿using IrrigationInformationSystem.Application.Interfaces;
 using IrrigationInformationSystem.Application.Models.Account;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IrrigationInformationSystem.MVC.UI.Controllers
@@ -41,9 +43,28 @@ namespace IrrigationInformationSystem.MVC.UI.Controllers
             return View();
         }
 
+        [HttpPost]
         public async Task<IActionResult> Login(LogInVM login, CancellationToken cancellationToken)
         {
-            var result = await _accountService.LogInAsync(login, cancellationToken);
+            try
+            {
+                var result = await _accountService.LogInAsync(login, cancellationToken);
+                var authProps = new AuthenticationProperties { IsPersistent = false, IssuedUtc = DateTimeOffset.UtcNow, ExpiresUtc = DateTimeOffset.UtcNow.AddHours(2) };
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, result, authProps);
+
+                return Redirect("/");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+            }
+            return View(login);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> LogOut(CancellationToken cancellationToken)
+        {
+            await HttpContext.SignOutAsync();
             return Redirect("/");
         }
     }

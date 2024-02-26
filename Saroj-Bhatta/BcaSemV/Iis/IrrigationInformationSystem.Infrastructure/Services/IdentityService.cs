@@ -2,7 +2,9 @@
 using IrrigationInformationSystem.Application.Models.Account;
 using IrrigationInformationSystem.Application.Models.Users;
 using IrrigationInformationSystem.Domain.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace IrrigationInformationSystem.Infrastructure.Services
 {
@@ -66,15 +68,29 @@ namespace IrrigationInformationSystem.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public async Task<bool> AuthenticateAsync(LogInVM login, CancellationToken cancellationToken)
+        public async Task<ClaimsPrincipal> AuthenticateAsync(LogInVM login, CancellationToken cancellationToken)
         {
-            var User = await _userManager.FindByNameAsync(login.Username);
-            if (User == null)
+            var user = await _userManager.FindByNameAsync(login.Username);
+            if (user == null)
             {
                 throw new Exception("Invalid Username or Password");
             }
-            var result = await _userManager.CheckPasswordAsync(User, login.Password);
-            return result;
+            var result = await _userManager.CheckPasswordAsync(user, login.Password);
+            if (!result)
+            {
+                throw new Exception("Invalid Username or Password");
+            }
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, $"{user.Id}"),
+                new Claim(ClaimTypes.Name,$"{user.FirstName} {user.LastName}" ),
+                new Claim(ClaimTypes.Email, user.Email),
+            };
+
+            var principal = new ClaimsPrincipal();
+            principal.AddIdentity(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));
+            return principal;
         }
 
     }

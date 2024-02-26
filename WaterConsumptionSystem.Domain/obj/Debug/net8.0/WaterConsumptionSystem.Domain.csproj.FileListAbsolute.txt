@@ -1,0 +1,13 @@
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\bin\Debug\net8.0\WaterConsumptionSystem.Domain.deps.json
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\bin\Debug\net8.0\WaterConsumptionSystem.Domain.dll
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\bin\Debug\net8.0\WaterConsumptionSystem.Domain.pdb
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\obj\Debug\net8.0\WaterConsumptionSystem.Domain.csproj.AssemblyReference.cache
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\obj\Debug\net8.0\WaterConsumptionSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\obj\Debug\net8.0\WaterConsumptionSystem.Domain.AssemblyInfoInputs.cache
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\obj\Debug\net8.0\WaterConsumptionSystem.Domain.AssemblyInfo.cs
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\obj\Debug\net8.0\WaterConsumptionSystem.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\obj\Debug\net8.0\WaterConsumptionSystem.Domain.sourcelink.json
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\obj\Debug\net8.0\WaterConsumptionSystem.Domain.dll
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\obj\Debug\net8.0\refint\WaterConsumptionSystem.Domain.dll
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\obj\Debug\net8.0\WaterConsumptionSystem.Domain.pdb
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Domain\obj\Debug\net8.0\ref\WaterConsumptionSystem.Domain.dll

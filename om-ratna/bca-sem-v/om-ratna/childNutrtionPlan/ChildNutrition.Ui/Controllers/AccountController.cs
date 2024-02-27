@@ -1,5 +1,6 @@
 ﻿using ChildNutrition.Application.Interfaces;
 using ChildNutrition.Application.Models.Accounts;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChildNutrition.Ui.Controllers
@@ -40,8 +41,18 @@ namespace ChildNutrition.Ui.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LogInVM logIn, CancellationToken cancellationToken)
         {
-            var result = await _accountService.LogInAsync(logIn, cancellationToken);
-            return Redirect("/");
+            try
+            {
+                var result = await _accountService.LogInAsync(logIn, cancellationToken);
+                var authProps= new AuthenticationProperties { IsPersistent = false, IssuedUtc=DateTimeOffset.UtcNow, ExpiresUtc = DateTimeOffset.UtcNow.AddHours(2)};
+                return Redirect("/");
+            }
+            catch (Exception ex)
+            {
+
+                ViewBag.ErrorMessage =ex.Message;
+            }
+           return View(logIn);
         }
 
         [HttpGet]

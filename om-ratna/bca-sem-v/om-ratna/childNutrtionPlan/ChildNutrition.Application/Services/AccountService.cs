@@ -11,9 +11,10 @@ namespace ChildNutrition.Application.Services
             _identityService = identityService;
         }
 
-        public Task<bool> LogInAsync(LogInVM logIn, CancellationToken cancellationToken)
+        public async Task<bool> LogInAsync(LogInVM logIn, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var result = await _identityService.AuthenticateAsync(logIn, cancellationToken);
+            return result;
         }
 
         public async Task<bool> SignUpAsync(SignUpVM signUp, CancellationToken cancellationToken)

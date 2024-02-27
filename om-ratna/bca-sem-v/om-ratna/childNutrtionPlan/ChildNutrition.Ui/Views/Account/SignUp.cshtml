@@ -4,7 +4,7 @@
     ViewData["Title"] = "SignUp";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<div>
 <h1>SignUp</h1>
 
 <h4>SignUpVM</h4>
@@ -60,10 +60,11 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
-    @Html.ActionLink("Back to List ?;", "Login")
+    @* a asp-action="Index">Back to List</a> *@
+    @Html.ActionLink("Back to List ?", "Login")
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+</div>

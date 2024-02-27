@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿. nBCASemV[]\\<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -6,5 +6,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Polio___Infant_Wellness</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Application\interface\" />
+    <Folder Include="Application\models\" />
+    <Folder Include="Application\services\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="infrastructure\persistence\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.1" />
+  </ItemGroup>
 
 </Project>

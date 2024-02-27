@@ -1,6 +1,7 @@
 ﻿using ChildNutrition.Application.Interfaces;
 using ChildNutrition.Domain.Entities;
 using ChildNutrition.Infrastructure.Persistence;
+using ChildNutrition.Infrastructure.UserService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,7 +30,7 @@ namespace ChildNutrition.Infrastructure
                 .AddApplicationCookie();
             services.AddAuthorization();
 
-
+            services.AddScoped <IIdentityService, IdentityService>();
         }
     }
 }

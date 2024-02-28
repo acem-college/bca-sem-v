@@ -7,11 +7,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IrrigationInformationSystem.Infrastructure
 {
@@ -33,14 +28,23 @@ namespace IrrigationInformationSystem.Infrastructure
 
             //for authenticaiton
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+<<<<<<< HEAD
                .AddCookie(options =>
                {
                    options.LoginPath = "/account/login";
                })
                .AddIdentityCookies();
+=======
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/account/login";
+                })
+                .AddIdentityCookies();
+
+>>>>>>> a87f4f70fe29f9fc5fba85573f185ee3917da05f
             services.AddAuthorization();
-            services.AddScoped<IIdentityService ,IdentityService>();
+            services.AddScoped<IIdentityService, IdentityService>();
         }
-       
+
     }
 }

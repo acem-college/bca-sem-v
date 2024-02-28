@@ -1,7 +1,12 @@
 ﻿using IrrigationInformationSystem.Application.Interfaces;
 using IrrigationInformationSystem.Application.Models.Account;
+<<<<<<< HEAD
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+=======
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+>>>>>>> a87f4f70fe29f9fc5fba85573f185ee3917da05f
 using Microsoft.AspNetCore.Mvc;
 
 namespace IrrigationInformationSystem.MVC.UI.Controllers
@@ -42,8 +47,14 @@ namespace IrrigationInformationSystem.MVC.UI.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
+<<<<<<< HEAD
         [HttpPost]
         public async Task<IActionResult>Login(LogInVM login,CancellationToken cancellationToken)
+=======
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LogInVM login, CancellationToken cancellationToken)
+>>>>>>> a87f4f70fe29f9fc5fba85573f185ee3917da05f
         {
             try
             {

@@ -2,7 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+<<<<<<< HEAD
     <!--Nullable>enable</Nullable>-->
+=======
+    <!--<Nullable>enable</Nullable>-->
+>>>>>>> a87f4f70fe29f9fc5fba85573f185ee3917da05f
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 

@@ -22,6 +22,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+<<<<<<< HEAD
+=======
+
+>>>>>>> a87f4f70fe29f9fc5fba85573f185ee3917da05f
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseCookiePolicy();

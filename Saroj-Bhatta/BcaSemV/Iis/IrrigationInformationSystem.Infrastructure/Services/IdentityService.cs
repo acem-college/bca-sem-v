@@ -5,6 +5,10 @@ using IrrigationInformationSystem.Domain.Entities;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+<<<<<<< HEAD
+=======
+
+>>>>>>> a87f4f70fe29f9fc5fba85573f185ee3917da05f
 namespace IrrigationInformationSystem.Infrastructure.Services
 {
     public class IdentityService : IIdentityService
@@ -30,6 +34,10 @@ namespace IrrigationInformationSystem.Infrastructure.Services
             }
             throw new Exception("Error While Creating a User");
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a87f4f70fe29f9fc5fba85573f185ee3917da05f
         public async Task<string> UserSignUpAsync(SignUpVM user, CancellationToken cancellationToken)
         {
             var dbUser = new User();
@@ -45,6 +53,10 @@ namespace IrrigationInformationSystem.Infrastructure.Services
             }
             throw new Exception("Error While Creating a User");
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a87f4f70fe29f9fc5fba85573f185ee3917da05f
         public Task<bool> DeleteAsync(int id, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
@@ -78,6 +90,10 @@ namespace IrrigationInformationSystem.Infrastructure.Services
             }
             throw new Exception("Error occured while updating user");
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a87f4f70fe29f9fc5fba85573f185ee3917da05f
         public async Task<ClaimsPrincipal> AuthenticateAsync(LogInVM login, CancellationToken cancellationToken)
         {
             var user = await _userManager.FindByNameAsync(login.Username);

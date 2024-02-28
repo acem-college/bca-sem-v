@@ -1,11 +1,6 @@
 ﻿using IrrigationInformationSystem.Application.Interfaces;
 using IrrigationInformationSystem.Application.Models.Users;
 using IrrigationInformationSystem.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IrrigationInformationSystem.Application.Services
 {
@@ -23,8 +18,10 @@ namespace IrrigationInformationSystem.Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> DeleteAsync(int id, CancellationToken cancellationToken)
+        public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken)
         {
+            var result = await _identityService.DeleteAsync(id, cancellationToken);
+            return result;
             throw new NotImplementedException();
         }
 
@@ -38,8 +35,10 @@ namespace IrrigationInformationSystem.Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateAsync(int id, UpdateUserVM User, CancellationToken cancellationToken)
+        public async Task<bool> UpdateAsync(int id, UpdateUserVM User, CancellationToken cancellationToken)
         {
+            var result = await _identityService.UpdateAsync(id, User, cancellationToken);
+            return result;
             throw new NotImplementedException();
         }
     }

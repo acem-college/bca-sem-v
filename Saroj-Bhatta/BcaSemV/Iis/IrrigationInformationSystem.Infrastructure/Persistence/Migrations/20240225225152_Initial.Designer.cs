@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IrrigationInformationSystem.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(IisDbContext))]
-    [Migration("20240225114555_Initial")]
+    [Migration("20240225225152_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -41,7 +41,6 @@ namespace IrrigationInformationSystem.Infrastructure.Persistence.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -88,10 +87,6 @@ namespace IrrigationInformationSystem.Infrastructure.Persistence.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

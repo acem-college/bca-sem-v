@@ -2,11 +2,6 @@
 using IrrigationInformationSystem.Application.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IrrigationInformationSystem.Application
 {
@@ -17,6 +12,7 @@ namespace IrrigationInformationSystem.Application
         {
 
             services.AddScoped<IAccountService,AccountService>();
+            services.AddScoped<ICommentService,CommentService>();
         }
     }
 }

@@ -8,5 +8,6 @@ namespace IrrigationInformationSystem.Infrastructure.Persistence
     public class IisDbContext : IdentityDbContext<User>, IIisDbContext
     {
         public IisDbContext(DbContextOptions<IisDbContext> options) : base(options) { }
+       public DbSet<Comment> Comments { get; set; }
     }
 }

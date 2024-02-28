@@ -2,6 +2,7 @@
 using IrrigationInformationSystem.Domain.Entities;
 using IrrigationInformationSystem.Infrastructure.Persistence;
 using IrrigationInformationSystem.Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -31,8 +32,12 @@ namespace IrrigationInformationSystem.Infrastructure
                 .AddDefaultTokenProviders();
 
             //for authenticaiton
-            services.AddAuthentication(IdentityConstants.ApplicationScheme)
-            .AddIdentityCookies();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+               .AddCookie(options =>
+               {
+                   options.LoginPath = "/account/login";
+               })
+               .AddIdentityCookies();
             services.AddAuthorization();
             services.AddScoped<IIdentityService ,IdentityService>();
         }

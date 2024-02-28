@@ -2,13 +2,9 @@
 using IrrigationInformationSystem.Application.Models.Account;
 using IrrigationInformationSystem.Application.Models.Users;
 using IrrigationInformationSystem.Domain.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Security.Claims;
 namespace IrrigationInformationSystem.Infrastructure.Services
 {
     public class IdentityService : IIdentityService
@@ -25,7 +21,7 @@ namespace IrrigationInformationSystem.Infrastructure.Services
             dbUser.FirstName = User.FirstName;
             dbUser.LastName = User.LastName;
             dbUser.DateOfBirth = User.DateOfBirth;
-            dbUser.Username = User.Username;
+            dbUser.UserName = User.Username;
             dbUser.Email = User.Email;
             var result = await _userManager.CreateAsync(dbUser);
             if (result.Succeeded)
@@ -34,7 +30,21 @@ namespace IrrigationInformationSystem.Infrastructure.Services
             }
             throw new Exception("Error While Creating a User");
         }
-
+        public async Task<string> UserSignUpAsync(SignUpVM user, CancellationToken cancellationToken)
+        {
+            var dbUser = new User();
+            dbUser.FirstName = user.FirstName;
+            dbUser.LastName = user.LastName;
+            dbUser.DateOfBirth = user.DateOfBirth;
+            dbUser.UserName = user.Username;
+            dbUser.Email = user.Email;
+            var result = await _userManager.CreateAsync(dbUser, user.Password);
+            if (result.Succeeded)
+            {
+                return dbUser.Id;
+            }
+            throw new Exception("Error While Creating a User");
+        }
         public Task<bool> DeleteAsync(int id, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
@@ -50,20 +60,47 @@ namespace IrrigationInformationSystem.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateAsync(int id, UpdateUserVM User, CancellationToken cancellationToken)
+        public async Task<bool> UpdateAsync(int id, UpdateUserVM user, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var dbUser=new User();
+            if (dbUser == null) {
+                throw new Exception("User not found!!");
+            }
+            dbUser.FirstName = user.FirstName;
+            dbUser.LastName = user.LastName;
+            dbUser.DateOfBirth = user.DateOfBirth;
+            dbUser.UserName = user.Username;
+            dbUser.Email = user.Email;
+            var result = await _userManager.UpdateAsync(dbUser);
+            if (result.Succeeded)
+            {
+                return result.Succeeded;
+            }
+            throw new Exception("Error occured while updating user");
         }
-
-        public async Task<bool> AuthenticateAsync(LogInVM login, CancellationToken cancellationToken)
+        public async Task<ClaimsPrincipal> AuthenticateAsync(LogInVM login, CancellationToken cancellationToken)
         {
-            var User = await _userManager.FindByNameAsync(login.Username);
-            if (User == null)
+            var user = await _userManager.FindByNameAsync(login.Username);
+            if (user == null)
             {
                 throw new Exception("Invalid Username or Password");
             }
-            var result = await _userManager.CheckPasswordAsync(User, login.Password);
-            return result;
+            var result = await _userManager.CheckPasswordAsync(user, login.Password);
+            if (!result)
+            {
+                throw new Exception("Invalid Username or Password");
+            }
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, $"{user.Id}"),
+                new Claim(ClaimTypes.Name,$"{user.FirstName} {user.LastName}" ),
+                new Claim(ClaimTypes.Email, user.Email),
+            };
+
+            var principal = new ClaimsPrincipal();
+            principal.AddIdentity(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));
+            return principal;
         }
 
     }

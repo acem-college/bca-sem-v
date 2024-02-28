@@ -1,9 +1,8 @@
 ﻿using IrrigationInformationSystem.Application.Interfaces;
 using IrrigationInformationSystem.Application.Models.Account;
-using IrrigationInformationSystem.Application.Services;
-using IrrigationInformationSystem.Domain.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace IrrigationInformationSystem.MVC.UI.Controllers
 {
@@ -24,7 +23,17 @@ namespace IrrigationInformationSystem.MVC.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> SignUp(SignUpVM signUp, CancellationToken cancellationToken)
         {
-            return View();
+            try
+            {
+                var result = await _accountService.SignUpAsync(signUp, cancellationToken);
+                if (result)
+                    return RedirectToAction("login");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+            }
+            return View(signUp);
         }
 
         [HttpGet]
@@ -33,9 +42,28 @@ namespace IrrigationInformationSystem.MVC.UI.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
+        [HttpPost]
         public async Task<IActionResult>Login(LogInVM login,CancellationToken cancellationToken)
         {
-            var result= await _accountService.LogInAsync(login,cancellationToken);
+            try
+            {
+                var result = await _accountService.LogInAsync(login, cancellationToken);
+                var authProps = new AuthenticationProperties { IsPersistent = false, IssuedUtc = DateTimeOffset.UtcNow, ExpiresUtc = DateTimeOffset.UtcNow.AddHours(2) };
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, result, authProps);
+
+                return Redirect("/");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+            }
+            return View(login);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> LogOut(CancellationToken cancellationToken)
+        {
+            await HttpContext.SignOutAsync();
             return Redirect("/");
         }
     }

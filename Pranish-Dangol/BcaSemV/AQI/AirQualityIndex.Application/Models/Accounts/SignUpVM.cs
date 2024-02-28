@@ -22,10 +22,15 @@ namespace AirQualityIndex.Application.Models.Accounts
         public string UserName { get; set; }
         [Required]
         [EmailAddress]
+        [MaxLength(300)]
         public string Email { get; set; }
         [Required]
+        [MinLength(8)]
+        [MaxLength(30)]
         public string Password { get; set; }
         [Required]
+        [MinLength(8)]
+        [MaxLength(30)]
         public string ConfirmPassword {  get; set; }
     }
 }

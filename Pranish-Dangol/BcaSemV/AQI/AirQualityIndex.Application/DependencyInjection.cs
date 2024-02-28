@@ -15,7 +15,7 @@ namespace AirQualityIndex.Application
         public static void AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IAccountService, AccountsService>();
-            
+            services.AddScoped<ICommentService, CommentService>();
 
         }
     }

@@ -14,5 +14,7 @@ namespace AirQualityIndex.Infrastructure.Persistence
         IAqiDbContext
     {
         public AqiDbContext (DbContextOptions<AqiDbContext> options) : base(options) { }
+
+        public DbSet<Comment> Comments { get; set; }
     }
 }

@@ -27,17 +27,17 @@ namespace AirQualityIndex.Application.Services
             return result;
         }
 
-        Task<UserVM> IUserService.GetAsync(int id, CancellationToken cancellationToken)
+        public async Task<UserVM> GetAsync(int id, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        Task<List<UserVM>> IUserService.ListAsync(CancellationToken cancellationToken)
+        public async Task<List<UserVM>> ListAsync(CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        Task<bool> IUserService.UpdateAsync(int id, UpdateUserVM user, CancellationToken cancellationToken)
+        public async Task<bool> UpdateAsync(int id, UpdateUserVM user, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

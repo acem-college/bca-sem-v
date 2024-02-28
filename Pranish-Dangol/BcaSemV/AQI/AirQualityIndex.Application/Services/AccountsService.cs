@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,15 +18,17 @@ namespace AirQualityIndex.Application.Services
         {
             _iIdentityService = identityService;
         }
-        public async Task<bool> LoginAsync(LoginVM login, CancellationToken cancellationToken)
+        public async Task<ClaimsPrincipal> LoginAsync(LoginVM login, CancellationToken cancellationToken)
         {
             var result = await _iIdentityService.AuthenticateAsync(login, cancellationToken);
             return result;
         }
 
-        public Task<string> SignUpAsync(SignUpVM signup, CancellationToken cancellationToken)
+        public async Task<bool> SignUpAsync(SignUpVM signup, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            await _iIdentityService.UserSignUpAsync(signup, cancellationToken);
+            return true;
         }
+
     }
 }

@@ -9,6 +9,7 @@ namespace ChildNutrition.Application
         public static void AddApplication(this IServiceCollection services)
         {
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<ICommentService, CommentServices>();
         }
     }
 }

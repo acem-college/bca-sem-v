@@ -3,10 +3,14 @@ using ChildNutrition.Application;
 using System.Runtime.CompilerServices;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile($"appsetting.Local.json",optional:true, reloadOnChange:true);
 
 // Add services to the container
 builder.Services.AddInfrastructure(builder.Configuration);
+//Register IAccountService
 builder.Services.AddApplication();
+
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

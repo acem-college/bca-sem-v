@@ -4,6 +4,7 @@ using ChildNutrition.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChildNutrition.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ChildNutritionDbContext))]
-    partial class ChildNutritionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240228070659_userDateOfBirth")]
+    partial class userDateOfBirth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

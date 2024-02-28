@@ -20,11 +20,11 @@ namespace ChildNutrition.Ui.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignUp(SignUpVM SignUpVm, CancellationToken cancellationToken)
+        public async Task<IActionResult> SignUp(SignUpVM SignUp, CancellationToken cancellationToken)
         {
             try
             {
-                var result = await _accountService.SignUpAsync(SignUpVm, cancellationToken);
+                var result = await _accountService.SignUpAsync(SignUp, cancellationToken);
                 if (result)
                 {
                     return RedirectToAction("login");
@@ -34,31 +34,34 @@ namespace ChildNutrition.Ui.Controllers
             {
                 ViewBag.ErrorMessage = ex.Message;
             }
-            return View(SignUpVm);
+            return View(SignUp);
 
         }
 
+        
+        [HttpGet]
+        public IActionResult Login(string returnUrl ="/")
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
         [HttpPost]
         public async Task<IActionResult> Login(LogInVM logIn, CancellationToken cancellationToken)
         {
-            try
+            /*try
             {
                 var result = await _accountService.LogInAsync(logIn, cancellationToken);
                 var authProps= new AuthenticationProperties { IsPersistent = false, IssuedUtc=DateTimeOffset.UtcNow, ExpiresUtc = DateTimeOffset.UtcNow.AddHours(2)};
+                
                 return Redirect("/");
             }
             catch (Exception ex)
             {
 
                 ViewBag.ErrorMessage =ex.Message;
-            }
-           return View(logIn);
-        }
-
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
+            }*/
+            var result = await _accountService.LogInAsync(logIn, cancellationToken);
+            return Redirect("/");
         }
     }
 }

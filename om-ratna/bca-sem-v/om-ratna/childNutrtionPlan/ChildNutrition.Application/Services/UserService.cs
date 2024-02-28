@@ -22,32 +22,27 @@ namespace ChildNutrition.Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<int> CreateAsync(CancellationToken CancellationToken)
+        public Task<string> CreateAsync(CancellationToken CancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> DeleteAsync(int id, CancellationToken cancellationToken)
+        public Task<bool> DeleteAsync(int id, CancellationToken CancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<UserVM> GetAsync(int id, CancellationToken cancellationToken)
+        public Task<UserVM> GetAsync(int id, CancellationToken CancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<UserVM>> ListAsync(CancellationToken cancellationToken)
+        public Task<List<UserVM>> ListAsync(CancellationToken CancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateAsync(int id, UpdateUserVM user, CancellationToken cancellation)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<string> IUserService.CreateAsync(CancellationToken CancellationToken)
+        public Task<bool> UpdateAsync(int id, UpdateUserVM user, CancellationToken CancellationToken)
         {
             throw new NotImplementedException();
         }

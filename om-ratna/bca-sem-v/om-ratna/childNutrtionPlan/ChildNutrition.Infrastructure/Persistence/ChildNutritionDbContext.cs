@@ -8,5 +8,10 @@ namespace ChildNutrition.Infrastructure.Persistence
     public class ChildNutritionDbContext : IdentityDbContext<User>, IChildNutritionDbContext
     {
         public ChildNutritionDbContext(DbContextOptions<ChildNutritionDbContext> options) : base(options) { }
+
+        public DbSet<Comment> Comments { get; set; }
+
     }
+        
 }
+

@@ -14,9 +14,15 @@ namespace ChildNutrition.Infrastructure.UserService
             _userManager = userManager;
         }
 
-        public Task<bool> AuthenticateAsync(LogInVM login, CancellationToken CancellationToken)
+        public async Task<bool> AuthenticateAsync(LogInVM login, CancellationToken CancellationToken)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByNameAsync(login.UserName);
+            if (user == null)
+            {
+                throw new Exception("Invalid username or password.");
+            }
+            var result = await _userManager.CheckPasswordAsync(user, login.Password);
+            return result;
         }
 
         public async Task<string> CreateAsync(CreateUserVM user, CancellationToken cancellationToken)
@@ -26,13 +32,14 @@ namespace ChildNutrition.Infrastructure.UserService
             dbUser.LastName = user.LastName; ;
             dbUser.Email = user.Email;
             dbUser.UserName = user.UserName;
-            var result = await _userManager.CreateAsync(dbUser);
+            
+            var result = await _userManager.CreateAsync(dbUser,user.Password);
             if (result.Succeeded)
             {
                 return dbUser.Id;
 
             }
-            throw new Exception("error_occured while creating user!!!");
+            throw new Exception("wasup!!error while creating user!!!");
         }
 
         public Task<bool> DeleteAsync(int id, CancellationToken CancellationToken)
@@ -50,11 +57,6 @@ namespace ChildNutrition.Infrastructure.UserService
             throw new NotImplementedException();
         }
 
-        public Task<bool> UpdateAsync(int id, UpdateUserVM user, CancellationToken CancellationToken)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<string> UserSignUpAsync(SignUpVM user, CancellationToken cancellationToken)
         {
             var dbUser = new User();
@@ -63,13 +65,19 @@ namespace ChildNutrition.Infrastructure.UserService
             dbUser.Email = user.Email;
             dbUser.UserName = user.Username;
             dbUser.DateOfBirth = user.DateOfBirth;
+           
             var result = await _userManager.CreateAsync(dbUser, user.Password);
             if (result.Succeeded)
             {
                 return dbUser.Id;
 
             }
-            throw new Exception("error_occured while creating user!!!");
+            throw new Exception("wasup!! error while creating user!!!");
+        }
+
+        Task<bool> IIdentityService.UpdateAsync(int id, UpdateUserVM user, CancellationToken CancellationToken)
+        {
+            throw new NotImplementedException();
         }
     }
 }

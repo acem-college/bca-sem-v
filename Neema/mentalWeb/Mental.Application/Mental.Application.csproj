@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Interfaces\IIdentityService.cs~RFfb97ecb.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Mental.Domain\Mental.Domain.csproj" />
   </ItemGroup>
 

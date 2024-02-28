@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mentalWeb", "mentalWeb\mentalWeb.csproj", "{C1CC31AE-F117-4FBE-9573-A84607D1BAD0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mental.Domain", "Mental.Domain\Mental.Domain.csproj", "{8FACBD7A-5D10-4DE1-A44B-7CEFFBB12ACC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{7FC04D27-B4AE-4703-99E3-30FD4D5B91B6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mental.Application", "Mental.Application\Mental.Application.csproj", "{A3860EB6-622E-4B1B-BF47-49B361DE0C11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mental.Ui", "Mental.Ui\Mental.Ui.csproj", "{4D4FDF93-6078-4FD0-B8D7-4C18C57F9002}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C1CC31AE-F117-4FBE-9573-A84607D1BAD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1CC31AE-F117-4FBE-9573-A84607D1BAD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1CC31AE-F117-4FBE-9573-A84607D1BAD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1CC31AE-F117-4FBE-9573-A84607D1BAD0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8FACBD7A-5D10-4DE1-A44B-7CEFFBB12ACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8FACBD7A-5D10-4DE1-A44B-7CEFFBB12ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FACBD7A-5D10-4DE1-A44B-7CEFFBB12ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{A3860EB6-622E-4B1B-BF47-49B361DE0C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3860EB6-622E-4B1B-BF47-49B361DE0C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3860EB6-622E-4B1B-BF47-49B361DE0C11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D4FDF93-6078-4FD0-B8D7-4C18C57F9002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D4FDF93-6078-4FD0-B8D7-4C18C57F9002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D4FDF93-6078-4FD0-B8D7-4C18C57F9002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D4FDF93-6078-4FD0-B8D7-4C18C57F9002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

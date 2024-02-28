@@ -12,6 +12,7 @@ namespace Infrastructure.Persistence
 {
     public class MentalDbContext : IdentityDbContext<User>, IMentalDbContext
     {
+        public DbSet<Comment> Comments { get; set; }
         public MentalDbContext(DbContextOptions<MentalDbContext> options) : base(options) { }
     }
 

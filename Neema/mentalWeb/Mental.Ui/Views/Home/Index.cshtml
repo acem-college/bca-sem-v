@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<section class="msger">
+    <header class="msger-header">
+        <div class="msger-header-title">
+            <i class="fas fa-comment-alt"></i> ChatGPT
+        </div>
+        <div class="msger-header-options">
+            <span><i class="fas fa-cog"></i></span>
+        </div>
+    </header>
+
+    <main class="msger-chat">
+    </main>
+
+    <form class="msger-inputarea">
+        <input id="messageInput" type="text" class="msger-input" placeholder="Enter your query..." />
+        <button id="sendButton" class="msger-send-btn">Send</button>
+    </form>
+</section>
+

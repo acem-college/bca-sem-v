@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Persistence;
+using Infrastructure.Services;
 using Mental.Application.Interfaces;
 using Mental.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
@@ -33,6 +34,8 @@ namespace Infrastructure
             services.AddAuthentication(IdentityConstants.ApplicationScheme)
                 .AddIdentityCookies();
             services.AddAuthorization();
+
+            services.AddScoped<IIdentityService, IdentityService>();
         }
 
     }

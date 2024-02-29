@@ -4,6 +4,7 @@ using Mental.Application.Models.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,7 +17,7 @@ namespace Mental.Application.Services
         {
             _identityService = identityService;
         }
-        public async Task<bool> LoginAsync(LoginVM loginVM, CancellationToken cancellationToken)
+        public async Task<ClaimsPrincipal> LoginAsync(LoginVM loginVM, CancellationToken cancellationToken)
         {
             var result = await _identityService.AuthenticateAsync(loginVM, cancellationToken);
             return result;

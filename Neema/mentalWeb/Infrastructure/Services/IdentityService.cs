@@ -2,7 +2,9 @@
 using Mental.Application.Models.Accounts;
 using Mental.Application.Models.Users;
 using Mental.Domain.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace Infrastructure.Services
 {
@@ -14,7 +16,7 @@ namespace Infrastructure.Services
            _userManager = userManager;
         }
 
-        public async Task<bool> AuthenticateAsync(LoginVM login, CancellationToken cancellationToken)
+        public async Task<ClaimsPrincipal> AuthenticateAsync(LoginVM login, CancellationToken cancellationToken)
         {
             var user = await _userManager.FindByNameAsync(login.UserName);
             if (user == null)
@@ -22,7 +24,22 @@ namespace Infrastructure.Services
                 throw new Exception("Invalid username or password.");
             }
             var result = await _userManager.CheckPasswordAsync(user, login.Password);
-            return result;
+            if (!result)
+            {
+                throw new Exception("invalid username or password");
+            }
+
+
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, $"{user.Id}"),
+                new Claim(ClaimTypes.Name, $"{user.FirstName} {user.LastName}"),
+                new Claim(ClaimTypes.Email,user.Email),
+                new Claim (ClaimTypes.Role,"Admin"),
+            };
+            var principal = new ClaimsPrincipal();
+            principal.AddIdentity(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));
+            return principal;
         }
 
         public async Task<string> CreateAsync(CreateUserVM user, CancellationToken cancellationToken)

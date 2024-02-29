@@ -2,6 +2,7 @@
 using Infrastructure.Services;
 using Mental.Application.Interfaces;
 using Mental.Domain.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -31,7 +32,11 @@ namespace Infrastructure
 
 
             //adding authentication & authorization
-            services.AddAuthentication(IdentityConstants.ApplicationScheme)
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/accounts/Login";
+                })
                 .AddIdentityCookies();
             services.AddAuthorization();
 

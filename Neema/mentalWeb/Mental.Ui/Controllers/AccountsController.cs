@@ -1,5 +1,7 @@
 ﻿using Mental.Application.Interfaces;
 using Mental.Application.Models.Accounts;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Mental.Ui.Controllers
@@ -8,10 +10,11 @@ namespace Mental.Ui.Controllers
     {
 
         private readonly IAccountService _accountService;
+
         public AccountsController(IAccountService accountService)
         {
             _accountService = accountService;
-        }   
+        }
 
         [HttpGet]
         public IActionResult SignUp()
@@ -28,9 +31,9 @@ namespace Mental.Ui.Controllers
                 if (result)
                     return RedirectToAction("login");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                ViewBag.ErrorMessage = ex.Message;  
+                ViewBag.ErrorMessage = ex.Message;
             }
             return View(signUp);
         }
@@ -42,9 +45,27 @@ namespace Mental.Ui.Controllers
             return View();
         }
         [HttpPost]
-        public async Task <IActionResult> Login(LoginVM login, CancellationToken cancellationToken) 
+        public async Task<IActionResult> Login(LoginVM login, CancellationToken cancellationToken)
         {
-            var result = await _accountService.LoginAsync(login, cancellationToken);
+            try
+            {
+                var result = await _accountService.LoginAsync(login, cancellationToken);
+                var authProps = new AuthenticationProperties { IsPersistent = false, IssuedUtc = DateTimeOffset.UtcNow, ExpiresUtc=DateTimeOffset.UtcNow.
+                    AddHours(2)};
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, result, authProps);
+                return Redirect("/");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+            }
+            return View(login);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> LogOut(CancellationToken cancellationToken)
+        {
+            await HttpContext.SignOutAsync();
             return Redirect("/");
 
         }

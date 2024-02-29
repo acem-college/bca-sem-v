@@ -7,6 +7,8 @@ using System.Diagnostics;
 
 namespace Mental.Ui.Controllers
 {
+    // [Authorize]
+    [Authorize(Roles ="Admin")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -34,13 +36,13 @@ namespace Mental.Ui.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
         [AllowAnonymous]
-        public IActionResult AboutUs()
+        public IActionResult ContactUs()
         {
             return View();
         }
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> AboutUs(CreateCommentVM comment, CancellationToken cancellationToken)
+        public async Task<IActionResult> ContactUs(CreateCommentVM comment, CancellationToken cancellationToken)
         {
             var response = await _commentService.CreateAsync(comment, cancellationToken);
             if (response > 0)

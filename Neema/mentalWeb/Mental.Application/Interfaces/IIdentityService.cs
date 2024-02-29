@@ -3,6 +3,7 @@ using Mental.Application.Models.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,7 @@ namespace Mental.Application.Interfaces
         Task<List<bool>> UpdateAsync(int id, UpdateUserVM user, CancellationToken cancellationToken);
 
         Task<bool> DeleteAsync(int id, CancellationToken cancellationToken);
-        Task<bool> AuthenticateAsync(LoginVM login, CancellationToken cancellationToken);
+        Task<ClaimsPrincipal> AuthenticateAsync(LoginVM login, CancellationToken cancellationToken);
 
     }
 }

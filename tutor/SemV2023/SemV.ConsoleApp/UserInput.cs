@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace SemV.ConsoleApp
 {
-    internal class UserInput
+    public interface UserInput
     {
-        public int AskForVaule(string param)
+       
+        public int AskForValue(string param)
         {
             Console.WriteLine($"Enter the value of {param}:");
             var value = Console.ReadLine();
@@ -21,7 +22,7 @@ namespace SemV.ConsoleApp
             if (!int.TryParse(value, out var val))
             {
                 Console.WriteLine("Input string is invalid. It must be number.");
-                return AskForVaule(param);
+                return AskForValue(param);
             }
 
             return val;

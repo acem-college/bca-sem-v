@@ -1,6 +1,7 @@
 ﻿using ChildNutrition.Application.Interfaces;
 using ChildNutrition.Application.Models.Accounts;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChildNutrition.Ui.Controllers
@@ -37,31 +38,38 @@ namespace ChildNutrition.Ui.Controllers
             return View(SignUp);
 
         }
+        //public async Task<IActionResult> Logout(LogInVM logIn, CancellationToken cancellationToken)
+        //{
 
-        
+        //}
+
+
+
         [HttpGet]
         public IActionResult Login(string returnUrl ="/")
         {
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Login(LogInVM logIn, CancellationToken cancellationToken)
         {
-            /*try
+            try
             {
                 var result = await _accountService.LogInAsync(logIn, cancellationToken);
-                var authProps= new AuthenticationProperties { IsPersistent = false, IssuedUtc=DateTimeOffset.UtcNow, ExpiresUtc = DateTimeOffset.UtcNow.AddHours(2)};
-                
+                var authProps = new AuthenticationProperties { IsPersistent = false, IssuedUtc = DateTimeOffset.UtcNow, 
+                    ExpiresUtc = DateTimeOffset.UtcNow.AddHours(2) };
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, result, authProps);
                 return Redirect("/");
             }
             catch (Exception ex)
             {
 
-                ViewBag.ErrorMessage =ex.Message;
-            }*/
-            var result = await _accountService.LogInAsync(logIn, cancellationToken);
-            return Redirect("/");
+                ViewBag.ErrorMessage = ex.Message;
+            }
+            return View(logIn);
         }
     }
 }

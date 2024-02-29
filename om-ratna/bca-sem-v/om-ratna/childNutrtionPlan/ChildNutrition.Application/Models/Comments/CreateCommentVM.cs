@@ -16,7 +16,6 @@ namespace ChildNutrition.Application.Models.Comments
         public string Name { get; set; }
         [Required]
         [MaxLength (50)]
-        [NotNull]
         public string Email { get; set; }
         [Required, MaxLength (500)]
         public string Message { get; set; }

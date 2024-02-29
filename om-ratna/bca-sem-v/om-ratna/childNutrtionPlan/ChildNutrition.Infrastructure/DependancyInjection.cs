@@ -2,6 +2,7 @@
 using ChildNutrition.Domain.Entities;
 using ChildNutrition.Infrastructure.Persistence;
 using ChildNutrition.Infrastructure.UserService;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -26,8 +27,12 @@ namespace ChildNutrition.Infrastructure
                 .AddApiEndpoints();
 
             //adding authentication and authorization
-            services.AddAuthentication(IdentityConstants.ApplicationScheme)
-                .AddApplicationCookie();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(optoins =>
+                {
+                    optoins.LoginPath = "/account/login";
+                })
+            .AddIdentityCookies();
             services.AddAuthorization();
 
             services.AddScoped <IIdentityService, IdentityService>();

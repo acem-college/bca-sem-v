@@ -1,5 +1,6 @@
 ﻿using ChildNutrition.Application.Models.Accounts;
 using ChildNutrition.Application.Models.Users;
+using System.Security.Claims;
 
 namespace ChildNutrition.Application.Interfaces
 {
@@ -10,7 +11,7 @@ namespace ChildNutrition.Application.Interfaces
         Task<string> CreateAsync(CreateUserVM user, CancellationToken CancellationToken);
         Task<bool> UpdateAsync(int id, UpdateUserVM user, CancellationToken CancellationToken);
         Task<bool> DeleteAsync(int id, CancellationToken CancellationToken);
-        Task<bool> AuthenticateAsync(LogInVM login, CancellationToken CancellationToken);
+        Task<ClaimsPrincipal> AuthenticateAsync(LogInVM login, CancellationToken CancellationToken);
         Task<string> UserSignUpAsync(SignUpVM user, CancellationToken cancellationToken);
 
     }

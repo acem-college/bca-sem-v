@@ -21,6 +21,8 @@ namespace ChildNutrition.Application.Services
         {
             var dbcomment = new Comment();
             dbcomment.Name = Comment.Name;
+            dbcomment.Email = Comment.Email;
+            dbcomment.Message = Comment.Message;
             dbcomment.CreatedAt = DateTime.Now;
             _dbcontext.Comments.Add(dbcomment);
 

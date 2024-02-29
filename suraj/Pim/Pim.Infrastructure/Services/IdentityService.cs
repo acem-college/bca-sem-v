@@ -15,7 +15,12 @@ namespace Pim.Infrastructure.Services
 {
     public class IdentityService : IIdentityservice
     {
-        public async Task<string> CreateAsync(CreateUserVM user, CancellationToken cancellationToken)
+		private readonly UserManager<User> _userManager;
+		public IdentityService(UserManager<User> userManager)
+		{
+			_userManager = userManager;
+		}
+		public async Task<string> CreateAsync(CreateUserVM user, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
             var dbUser = new User();
@@ -25,7 +30,7 @@ namespace Pim.Infrastructure.Services
             dbUser.UserName = user.Username;
             dbUser.DOB = user.DateOfBirth;
 
-            var result = await _UserManager.CreateAsync(dbUser);
+            var result = await _userManager.CreateAsync(dbUser);
             if (result.Succeeded)
             {
                 return dbUser.Id;
@@ -50,23 +55,14 @@ namespace Pim.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        Task<int> IIdentityservice.CreateAsync(CreateUserVM user, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
+       
 
-        private readonly UserManager<User> _UserManager;
-        private object await_usermanager;
-
-        public IdentityService(UserManager<User> userManager)
-        {
-            _UserManager = userManager;
-        }
+       
 
 
         public async Task<ClaimsPrincipal> AuthenticateAsync(LogInVm login, CancellationToken cancellationToken)
         {
-            var User = await _UserManager.FindByNameAsync(login.Username);
+            var User = await _userManager.FindByNameAsync(login.Username);
             if (User == null)
             {
                 throw new Exception("Invalid Username or Password");
@@ -84,7 +80,31 @@ namespace Pim.Infrastructure.Services
             return principal;
 
         }
-    }
+
+		public async Task<string> UserSignUpAsync(SignUpVm user, CancellationToken cancellationToken)
+		{
+			var dbUser = new User();
+
+			dbUser.FirstName = user.FirstName;
+			dbUser.LastName = user.LastName;
+			dbUser.DOB = user.DateOfBirth;
+			dbUser.UserName = user.Username;
+			dbUser.Email = user.Email;
+
+			var result = await _userManager.CreateAsync(dbUser, user.Password);
+
+			if (result.Succeeded)
+			{
+				return dbUser.Id;
+			}
+			throw new Exception("Error while creating user"); ;
+		}
+
+		Task<int> IIdentityservice.CreateAsync(CreateUserVM user, CancellationToken cancellationToken)
+		{
+			throw new NotImplementedException();
+		}
+	}
 
 }
 

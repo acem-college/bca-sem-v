@@ -11,5 +11,6 @@ namespace Pim.Application.Interfaces
         Task<int> CreateAsync(CreateUserVM user, CancellationToken cancellationToken);
         Task<bool> UpdateAsync(int id, CancellationToken cancellationToken);
         Task<ClaimsPrincipal> AuthenticateAsync(LogInVm login, CancellationToken cancellationToken);
-    }
+		Task<String> UserSignUpAsync(SignUpVm user, CancellationToken cancellationToken);
+	}
 }

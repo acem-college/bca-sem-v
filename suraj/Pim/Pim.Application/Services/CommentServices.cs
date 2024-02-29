@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Pim.Application.Services
 {
-    public class CommentServices
+    public class CommentServices : ICommentServices
     {
         private readonly IPimDbContext _dbContext; 
         public CommentServices(IPimDbContext dbContext)

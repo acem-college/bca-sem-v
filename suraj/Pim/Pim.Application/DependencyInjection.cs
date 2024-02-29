@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Pim.Application.Interfaces;
 using Pim.Application.Services;
 using System;
@@ -11,9 +12,10 @@ namespace Pim.Application
 {
    public static class DependencyInjection
     {
-        public static void AddApplication(this IServiceCollection services)
+        public static void AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<ICommentServices, CommentServices>();
         }
     }
 }

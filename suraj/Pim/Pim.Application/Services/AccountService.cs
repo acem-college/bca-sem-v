@@ -12,15 +12,16 @@ namespace Pim.Application.Services
             _identityService = identityService;
         }
 
-        async Task<ClaimsPrincipal> IAccountService.LogInAsync(LogInVm logIn, CancellationToken cancellationToken)
+       public async Task<ClaimsPrincipal> LogInAsync(LogInVm logIn, CancellationToken cancellationToken)
         {
             var result = await _identityService.AuthenticateAsync(logIn, cancellationToken);
             return result;
         }
 
-        Task<bool> IAccountService.SignUpAsync(SignUpVm signUp, CancellationToken cancellationToken)
+        public async Task<bool> SignUpAsync(SignUpVm signUp, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            await _identityService.UserSignUpAsync(signUp, cancellationToken);
+            return true;
         }
     }
 }

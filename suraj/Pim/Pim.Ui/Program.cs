@@ -7,7 +7,7 @@ builder.Configuration.AddJsonFile("appsettings.local.json", optional: true, relo
 
 // Add services to the container.
 builder.Services.AddInfrastructure(builder.Configuration);
-builder.Services.AddApplication();
+builder.Services.AddApplication(builder.Configuration);
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

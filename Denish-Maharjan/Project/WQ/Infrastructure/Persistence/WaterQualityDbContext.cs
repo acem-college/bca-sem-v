@@ -10,8 +10,9 @@ using WaterQuality.Domain.Entities;
 
 namespace Infrastructure.Persistence
 {
-    internal class WaterQualityDbContext : IdentityDbContext<User>, IWQDbContext
+    public class WaterQualityDbContext : IdentityDbContext<User>, IWQDbContext
     {
         public WaterQualityDbContext(DbContextOptions<WaterQualityDbContext> options): base(options) { }
+        public DbSet<Comment> Comments { get; set; }
     }
 }

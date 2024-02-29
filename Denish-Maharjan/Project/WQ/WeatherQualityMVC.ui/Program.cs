@@ -1,10 +1,12 @@
 using Infrastructure;
+using WaterQuality.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddJsonFile($"appsetting{builder.Environment}.json", optional: true, reloadOnChange: true);
 // Add services to the container.
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddApplication(builder.Configuration);
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -22,7 +24,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+app.UseCookiePolicy();
 
 app.MapControllerRoute(
     name: "default",

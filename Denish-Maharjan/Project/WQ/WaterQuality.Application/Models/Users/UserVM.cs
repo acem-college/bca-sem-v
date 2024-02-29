@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WaterQuality.Application.Models.Users
 {
-    internal class UserVM
+    public class UserVM
     {
+      
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Infrastructure.Persistence;
+using Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -26,14 +28,20 @@ namespace Infrastructure
             //For identity
             services.AddIdentityCore<User>()
                 .AddEntityFrameworkStores<WaterQualityDbContext>()
-                .AddApiEndpoints();
+                .AddDefaultTokenProviders();
 
             //adding authentication andauth
-            services.AddAuthentication(IdentityConstants.ApplicationScheme)
-                .AddIdentityCookies();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+               .AddCookie(options =>
+               {
+                   options.LoginPath = "/account/login";
+               })
+               .AddIdentityCookies();
+            
             services.AddAuthorization();
+            services.AddScoped<IIdentityService, IdentityService>();    
 
-          
+
 
 
 

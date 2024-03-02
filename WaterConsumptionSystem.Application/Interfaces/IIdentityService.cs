@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using WaterConsumptionSystem.Application.Models.Accounts;
@@ -17,6 +18,6 @@ namespace WaterConsumptionSystem.Application.Interfaces
         Task<bool> UpdateAsync(int id, CancellationToken cancellationToken);
         Task<bool> DeleteAsync(int id, CancellationToken cancellationToken);
 
-        Task<bool>AuthenticateAsync(LoginVM Login, CancellationToken cancellationToken);
+        Task<ClaimsPrincipal>AuthenticateAsync(LoginVM Login, CancellationToken cancellationToken);
     }
 }

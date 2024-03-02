@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using WaterConsumptionSystem.Application.Interfaces;
@@ -21,10 +22,10 @@ namespace WaterConsumptionSystem.Application.Services
             throw new NotImplementedException();
         }
 
-        public async Task<bool> LoginAsync(LoginVM LoginVM, CancellationToken cancellationToken)
+        public async Task<ClaimsPrincipal> LoginAsync(LoginVM Login, CancellationToken cancellationToken)
         {
 
-            var result = await _iIdentityService.AuthenticateAsync(LoginVM, cancellationToken);
+            var result = await _iIdentityService.AuthenticateAsync(Login, cancellationToken);
             return result;
         }
 

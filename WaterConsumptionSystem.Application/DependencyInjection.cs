@@ -16,6 +16,7 @@ namespace WaterConsumptionSystem.Application
         public static void AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IAccountsServices,AccountService>();
+            services.AddScoped<ICommentService,CommentService>();
         }
 
     }

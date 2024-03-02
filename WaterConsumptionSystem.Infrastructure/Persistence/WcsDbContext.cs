@@ -14,5 +14,6 @@ namespace WaterConsumptionSystem.Infrastructure.Persistence
     public class WcsDbContext : IdentityDbContext<User>,IwcsDbContext
     {
         public WcsDbContext(DbContextOptions<WcsDbContext> options):base(options) { }
+       public DbSet<Comment> Comments { get; set; }
     }
 }

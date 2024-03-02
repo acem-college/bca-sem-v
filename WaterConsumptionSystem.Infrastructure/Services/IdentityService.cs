@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 using WaterConsumptionSystem.Application.Interfaces;
 using WaterConsumptionSystem.Application.Models.Accounts;
 using WaterConsumptionSystem.Application.Models.Users;
@@ -14,17 +16,31 @@ namespace WaterConsumptionSystem.Infrastructure.Services
             _userManager = userManager;
         }
 
-        public async Task<bool> AuthenticateAsync(LoginVM Login, CancellationToken cancellationToken)
+        public async Task<ClaimsPrincipal> AuthenticateAsync(LoginVM Login, CancellationToken cancellationToken)
         {
             var user = await _userManager.FindByNameAsync(Login.Username);
             if (user == null)
             {
                 throw new Exception("Invalid Username or Password");
             }
+            var result = await _userManager.CheckPasswordAsync(user, Login.Password);
+            if (!result)
+            {
+                throw new Exception("Invalid Username or Password");
+            }
 
-            var isValidPassword = await _userManager.CheckPasswordAsync(user, Login.Password);
-            return isValidPassword;
+            var claims = new List<Claim>
+            {
+                new  Claim(ClaimTypes.NameIdentifier, $"{user.Id}"),
+                new  Claim(ClaimTypes.Name, $"{user.FirstName} {user.LastName}"),
+                new  Claim(ClaimTypes.Email, $"{user.Email}"),
+                new Claim(ClaimTypes.Role,"Admin"),
+            };
+            var principal = new ClaimsPrincipal();
+            principal.AddIdentity(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme));
+                return principal;
         }
+        
 
         public async Task<string> UserSignUpAsync(SignUpVM user, CancellationToken cancellationToken)
         {

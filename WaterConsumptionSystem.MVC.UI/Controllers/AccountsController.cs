@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using WaterConsumptionSystem.Application.Interfaces;
@@ -41,17 +44,35 @@ namespace WaterConsumptionSystem.MVC.UI.Controllers
 
         [HttpGet]
         public IActionResult Login(string returnUrl = "/")
-        
-            {
-                ViewData["ReturnUrl"] = returnUrl;
-                return View();
-            }
-            public async Task<IActionResult> Login(LoginVM Login, CancellationToken cancellationToken)
+
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+        public async Task<IActionResult> Login(LoginVM Login, CancellationToken cancellationToken)
+        {
+            try
             {
                 var result = await _accountService.LoginAsync(Login, cancellationToken);
+                var authProps = new AuthenticationProperties { IsPersistent = false, IssuedUtc = DateTimeOffset.UtcNow };
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, result, authProps);
+
                 return Redirect("/");
             }
-        
+            catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
 
+            }
+            return View(Login);
+        }
+        [HttpGet]
+        public async Task<IActionResult>LogOut(CancellationToken cancellationToken)
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/");
+        }
     }
 }
+
+    

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,7 +32,11 @@ namespace WaterConsumptionSystem.Infrastructure
                 .AddDefaultTokenProviders();
 
             //for authenticaiton
-            services.AddAuthentication(IdentityConstants.ApplicationScheme)
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.LoginPath = "/Accounts/Login";
+            })
             .AddIdentityCookies();
             services.AddAuthorization();
             services.AddScoped<IIdentityService, IdentityService>();

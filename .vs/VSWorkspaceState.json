@@ -5,6 +5,6 @@
     "\\WaterConsumptionSystem.Domain\\Entities",
     "\\WaterConsumptionSystem.MVC.UI"
   ],
-  "SelectedNode": "\\Wcs.sln",
+  "SelectedNode": "\\WaterConsumptionSystem.MVC.UI\\appsettings.Development.json",
   "PreviewInSolutionExplorer": false
 }

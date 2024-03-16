@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WaterConsumptionSystem.MVC.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b853bce7a8e639faf287f7415641693649e805af")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d466473b7aec6c254576523a7e5d4b038c740b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("WaterConsumptionSystem.MVC.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WaterConsumptionSystem.MVC.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

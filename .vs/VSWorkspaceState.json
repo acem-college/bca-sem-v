@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WaterConsumptionSystem.Domain",
-    "\\WaterConsumptionSystem.Domain\\Entities",
     "\\WaterConsumptionSystem.MVC.UI"
   ],
-  "SelectedNode": "\\WaterConsumptionSystem.MVC.UI\\appsettings.Development.json",
+  "SelectedNode": "\\WaterConsumptionSystem.MVC.UI\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

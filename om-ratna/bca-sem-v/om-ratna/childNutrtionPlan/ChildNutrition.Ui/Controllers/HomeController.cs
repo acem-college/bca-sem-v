@@ -8,7 +8,7 @@ using System.Diagnostics;
 namespace ChildNutrition.Ui.Controllers
 {
     //[Authorize]
-    [Authorize(Roles ="Admin")]
+    /*[Authorize(Roles ="Admin")]*/
     public class HomeController : Controller
     {
         

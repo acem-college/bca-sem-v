@@ -38,14 +38,9 @@ namespace ChildNutrition.Ui.Controllers
             return View(SignUp);
 
         }
-        //public async Task<IActionResult> Logout(LogInVM logIn, CancellationToken cancellationToken)
-        //{
+        
 
-        //}
-
-
-
-        [HttpGet]
+        [HttpPost]
         public IActionResult Login(string returnUrl ="/")
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -64,6 +59,7 @@ namespace ChildNutrition.Ui.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, result, authProps);
                 return Redirect("/");
             }
+
             catch (Exception ex)
             {
 
@@ -71,5 +67,13 @@ namespace ChildNutrition.Ui.Controllers
             }
             return View(logIn);
         }
+        
+       /* [HttpGet]
+        public async Task<IActionResult> LogOut(LogInVM logIn ,CancellationToken cancellationToken)
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/");
+
+        }*/
     }
 }

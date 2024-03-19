@@ -29,7 +29,7 @@ namespace ChildNutrition.Infrastructure
             //adding authentication and authorization
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(optoins =>
-                {
+                {       
                     optoins.LoginPath = "/account/login";
                 })
             .AddIdentityCookies();

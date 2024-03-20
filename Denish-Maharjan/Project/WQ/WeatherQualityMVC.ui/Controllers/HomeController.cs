@@ -15,13 +15,13 @@ namespace WeatherQualityMVC.ui.Controllers
     {
        
         private readonly ILogger<HomeController> _logger;
-        private readonly ICommentService _commentService;
+        
       
 
-        public HomeController(ILogger<HomeController> logger, ICommentService commentService)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-           _commentService = commentService;
+           
         }
 
         public IActionResult Index()
@@ -44,17 +44,7 @@ namespace WeatherQualityMVC.ui.Controllers
         { 
             return View(); 
         }   
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<IActionResult> ContactUs(CreateCommentVm comment, CancellationToken cancellationToken)
-        {
-            var response = await _commentService.CreateAsync(comment, cancellationToken);
-            if (response > 0)
-            {
-                return RedirectToAction("index");
-            }
-            return View(comment);
-        }
+        
 
 
 

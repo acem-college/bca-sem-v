@@ -14,5 +14,6 @@ namespace Infrastructure.Persistence
     {
         public WaterQualityDbContext(DbContextOptions<WaterQualityDbContext> options): base(options) { }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Bagmati> Bagmati { get; set; }
     }
 }

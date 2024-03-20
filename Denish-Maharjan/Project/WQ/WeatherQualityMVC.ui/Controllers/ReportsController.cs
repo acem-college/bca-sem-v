@@ -11,5 +11,11 @@ namespace WaterQualityMVC.ui.Controllers
         {
             _reportService = reportService;
         }
+        [HttpGet]
+        public IActionResult Bagmati()
+        {
+            var response = _reportService.GetReport();
+            return View(response);  
+        }
     }
 }

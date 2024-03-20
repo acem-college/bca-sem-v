@@ -3,11 +3,12 @@ using WaterQuality.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration.AddJsonFile($"appsetting{builder.Environment}.json", optional: true, reloadOnChange: true);
+
 // Add services to the container.
+builder.Services.AddControllersWithViews();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication(builder.Configuration);
-builder.Services.AddControllersWithViews();
+builder.Configuration.AddJsonFile($"appsettings.{builder.Environment}.json", optional: true, reloadOnChange: true);
 
 var app = builder.Build();
 

@@ -14,11 +14,8 @@ namespace WaterQuality.Application
     {
         public static void AddApplication(this IServiceCollection services, IConfiguration configuration ) 
         {
-            services.AddScoped<IAccountService, AccountService>();
-            services.AddScoped<ICommentService, CommentService>();
-           
-                }
-        
-       
+            services.AddScoped<IAccountService, AccountService>();     
+            services.AddScoped<IReportService, ReportService>();
+        }
     }
 }

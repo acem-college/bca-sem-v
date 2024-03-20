@@ -12,5 +12,6 @@ namespace WaterQuality.Application.Interface
     {
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         DbSet<Comment>Comments { get; set; }
+        DbSet<Bagmati> Bagmati{ get; set; }
     }
 }

@@ -1,0 +1,125 @@
+﻿@model IEnumerable<WaterQuality.Domain.Entities.Bagmati>
+
+@{
+    ViewData["Title"] = "Bagmati";
+}
+
+<h1>Bagmati</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Parameters)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BOD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TDS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NH3_N)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.N03_N)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.N02_N)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TOC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.E_coli)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parameters)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BOD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.COD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TDS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NH3_N)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.N03_N)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.N02_N)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TOC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.E_coli)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

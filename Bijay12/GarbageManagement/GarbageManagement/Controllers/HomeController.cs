@@ -1,8 +1,8 @@
-using Classwork.MVC.Models;
+using GarbageManagement.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Classwork.MVC.Controllers
+namespace GarbageManagement.Controllers
 {
     public class HomeController : Controller
     {

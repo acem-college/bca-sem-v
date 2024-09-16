@@ -1,4 +1,4 @@
-namespace Classwork.MVC.Models
+namespace GarbageManagement.Models
 {
     public class ErrorViewModel
     {

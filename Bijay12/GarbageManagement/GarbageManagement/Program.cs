@@ -1,8 +1,11 @@
+using GarbageManagement.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration.AddJsonFile($"appsettings.local.json", optional: true, reloadOnChange: true);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddInfrastructure(builder.Configuration);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

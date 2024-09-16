@@ -1,0 +1,16 @@
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\bin\Debug\net8.0\WaterConsumptionSystem.Application.deps.json
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\bin\Debug\net8.0\WaterConsumptionSystem.Application.dll
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\bin\Debug\net8.0\WaterConsumptionSystem.Application.pdb
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\bin\Debug\net8.0\WaterConsumptionSystem.Domain.dll
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\bin\Debug\net8.0\WaterConsumptionSystem.Domain.pdb
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\obj\Debug\net8.0\WaterConsumptionSystem.Application.csproj.AssemblyReference.cache
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\obj\Debug\net8.0\WaterConsumptionSystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\obj\Debug\net8.0\WaterConsumptionSystem.Application.AssemblyInfoInputs.cache
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\obj\Debug\net8.0\WaterConsumptionSystem.Application.AssemblyInfo.cs
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\obj\Debug\net8.0\WaterConsumptionSystem.Application.csproj.CoreCompileInputs.cache
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\obj\Debug\net8.0\WaterConsumptionSystem.Application.sourcelink.json
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\obj\Debug\net8.0\WaterConsumptionSystem.Application.csproj.CopyComplete
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\obj\Debug\net8.0\WaterConsumptionSystem.Application.dll
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\obj\Debug\net8.0\refint\WaterConsumptionSystem.Application.dll
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\obj\Debug\net8.0\WaterConsumptionSystem.Application.pdb
+C:\Users\Bishal Lama\OneDrive\Desktop\c#\semVBCA\bca-sem-v\Bishal-Lama\bca-sem-v\Wcs\WaterConsumptionSystem.Application\obj\Debug\net8.0\ref\WaterConsumptionSystem.Application.dll

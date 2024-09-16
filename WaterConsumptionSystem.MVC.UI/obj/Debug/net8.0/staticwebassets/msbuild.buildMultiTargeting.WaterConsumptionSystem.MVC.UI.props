@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\WaterConsumptionSystem.MVC.UI.props" />
+</Project>
